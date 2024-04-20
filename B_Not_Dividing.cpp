@@ -32,8 +32,14 @@ void inputArr(vi &v)
     {
         int ele;
         cin >> ele;
-        v[i] = ele+2;
+        if(ele == 1) ele++;
+        v[i] = ele;
     }
+}
+
+bool isEven(int n)
+{
+    return n & 1 == 0;
 }
 
 void solve()
@@ -42,8 +48,17 @@ void solve()
     cin >> n;
     vi v(n);
     inputArr(v);
-    printArr(v);
 
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (v[i] > v[i + 1])
+            continue;
+
+        
+        if (v[i + 1] % v[i] == 0)
+            v[i + 1]++;
+    }
+    printArr(v);
 }
 
 int32_t main()
