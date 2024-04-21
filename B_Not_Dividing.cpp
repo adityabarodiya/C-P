@@ -48,6 +48,7 @@ void solve()
     cin >> n;
     vi v(n);
     inputArr(v);
+// 
 
     for (int i = 0; i < n - 1; i++)
     {
