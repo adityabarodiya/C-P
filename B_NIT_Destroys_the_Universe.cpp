@@ -49,7 +49,8 @@ void solve()
     for (int i : v)
     {
         if (i != 0 && f)
-        {
+        {   
+            // increase counter 
             count++;
             f = !f;
         }
