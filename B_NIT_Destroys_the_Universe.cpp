@@ -27,7 +27,7 @@ using namespace std;
 */
 
 void inputArr(vi &v)
-{
+{//
     for (int i = 0; i < v.size(); i++)
     {
         int ele;
