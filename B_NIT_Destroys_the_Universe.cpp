@@ -27,7 +27,7 @@ using namespace std;
 */
 
 void inputArr(vi &v)
-{
+{//
     for (int i = 0; i < v.size(); i++)
     {
         int ele;
@@ -49,7 +49,8 @@ void solve()
     for (int i : v)
     {
         if (i != 0 && f)
-        {
+        {   
+            // increase counter 
             count++;
             f = !f;
         }
