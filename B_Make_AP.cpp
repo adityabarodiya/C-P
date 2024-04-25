@@ -1,78 +1,39 @@
-/*
-    Author - Aditya Barodiya
-*/
+#include<bits/stdc++.h>
 
-#include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
+void solveTest() {
+    int a, b, c;
+    cin >> a >> b >> c;
 
-#define vi vector<int>
-
-#define println(a) cout << a << endl;
-#define print(a) cout << a << " ";
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-
-#define pb push_back
-#define printArr(a)       \
-    for (auto x : a)      \
-        cout << x << " "; \
-    cout << endl
-
-#define all(x) x.begin(), x.end()
-
-/*
-    Start Solving from here ---------------------------------------------------------------------
-*/
-bool isEven(int x){
-    return x%2==0;
-}
-int sumOfArray(vi &v)
-{
-    int sum = 0;
-    for (auto x : v)
-    {
-        sum += x;
+    int new_a = b - (c - b);
+    if(new_a >= a && new_a % a == 0 && new_a != 0) {
+        cout << "YES\n";
+        return;
     }
-    return sum;
-}
 
-void inputArr(vi &v)
-{
-    for (int i = 0; i < v.size(); i++)
-    {
-        int ele;
-        cin >> ele;
-        v[i] = ele;
+    int new_b = a + (c - a)/2;
+    if(new_b >= b && (c-a)%2 == 0 && new_b % b == 0 && new_b != 0) {
+        cout << "YES\n";
+        return;
     }
+
+    int new_c = a + 2*(b - a);
+    if(new_c >= c && new_c % c == 0 && new_c != 0) {
+        cout << "YES\n";
+        return;
+    }
+
+    cout << "NO\n";
+    return;
 }
 
-void solve()
-{
-    int a , b , c ;
-    cin >> a >> b >> c ;
-
-    int diff1 = abs(a-b);
-    int diff2 = abs(b-c);
-
-    if((isEven(diff1) && isEven(diff2)) || (!isEven(diff1) && !isEven(diff2))){
-        yes;
-    }else no;
-}
-
-int32_t main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-
-    clock_t z = clock();
-
-    int t = 0;
-    cin >> t;
-    while (t--)
-        solve();
-
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    int tt;
+    cin >> tt;
+    while(tt--)
+        solveTest();
     return 0;
 }
