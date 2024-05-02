@@ -47,6 +47,10 @@ void solve()
 {
     int n;
     cin >> n;
+    if(n==2){
+        println(1)
+        return;
+    }
     if(isEven(n)){
         println(n-2);
 
@@ -73,3 +77,4 @@ int32_t main()
 
     return 0;
 }
+

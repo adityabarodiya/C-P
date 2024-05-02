@@ -45,12 +45,22 @@ bool isEven(int n)
 
 void solve()
 {
-    int n;
-    cin >> n;
-    if(isEven(n)){
-        println(n-2);
+    int n, m;
+    cin >> n >> m;
+    string a, b;
+    cin >> a >> b;
 
-    }else println(n-1);
+    int k = 0;
+    auto i = b.begin();
+    for (char ch : a)
+    {
+        i = find(i, b.end(), ch);
+        if (i == b.end())
+            break;
+        ++i;
+        ++k;
+    }
+    println(k);
 }
 
 int32_t main()

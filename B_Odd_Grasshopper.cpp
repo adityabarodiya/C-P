@@ -1,123 +1,44 @@
-/*
-    Author - Aditya Barodiya
-*/
-
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-
-#define vi vector<int>
-
-#define println(a) cout << a << endl;
-#define print(a) cout << a << " ";
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-
-#define pb push_back
-#define printArr(a)       \
-    for (auto x : a)      \
-        cout << x << " "; \
-    cout << endl
-
-#define all(x) x.begin(), x.end()
-
-/*
-    Start Solving from here ---------------------------------------------------------------------
-*/
-
-void inputArr(vi &v)
+int main()
 {
-    for (int i = 0; i < v.size(); i++)
-    {
-        int ele;
-        cin >> ele;
-        if (ele == 1)
-            ele++;
-        v[i] = ele;
-    }
-}
-
-bool isEven(int n)
-{
-    return n & 1 == 0;
-}
-
-void solve()
-{
-    int n, k;
-    cin >> n >> k;
-
-    if(k == 0){
-        println(n)
-        return;
-    }
-
-    int l = n;
-    int rem = k % 4;
-    int div = k / 4;
-
-    if (n % 2 == 0)
-    {
-        if (rem == 0)
-        {
-            l = 0;
-        }
-        else if (rem == 1)
-        {
-            l = div * 4 + 1;
-            l *= -1;
-        }
-        else if (rem == 2)
-        {
-            l = 1;
-        }
-        else if (rem == 3)
-        {
-            l = (div + 1) * 4;
-        }
-    }
-    else{
-        if (rem == 0 )
-        {
-            l = 1;
-        }
-        else if (rem == 1)
-        {
-            l = div * 4 + 2;
-        }
-        else if (rem == 2)
-        {
-            l = 0;
-        }
-        else if (rem == 3)
-        {
-            l = (div + 1) * 4;
-            
-            l*= -1;
-        }
-    }
-
-    println(n + l);
-}
-
-int32_t main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-
-    // for fast input and output
-    // #ifndef ONLINE_JUDGE
-    //     freopen("input.txt", "r", stdin);
-    //     freopen("output.txt", "w", stdout);
-    // #endif
-    clock_t z = clock();
-
-    int t = 0;
+    int t;
     cin >> t;
-    while (t--)
-        solve();
 
-    return 0;
+    while (t > 0)
+    {
+        long long x;
+        cin >> x;
+        long long n;
+        cin >> n;
+        long long z = 0;
+        if (n % 4 == 0)
+        {
+            z = 0;
+        }
+        else if (n % 4 == 1)
+        {
+            z = -n;
+        }
+        else if (n % 4 == 2)
+        {
+            z = 1;
+        }
+        else
+        {
+            z = n + 1;
+        }
+
+        if (x & 1)
+        {
+            cout << x - z << endl;
+        }
+        else
+        {
+            cout << x + z << endl;
+        }
+
+        t--;
+    }
 }
