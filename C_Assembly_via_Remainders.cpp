@@ -46,22 +46,18 @@ void solve()
 {
     int N;
     cin >> N;
-    int n = N - 1;
-    vi v(n);
-    inputArr(v);
 
-    vi ans(0);
-    ans.pb(v[0] + 1);
-
-    for (int i : v)
+    
+    int a = 1000;
+    print(a);
+    for (int i = 2; i <= N; i++)
     {
-        int n = ans.size();
-        int prev = ans[n - 1];
-        ans.pb(prev + i );
-        if (i < ans[n])
-            ans[n] += i + 1;
+        int ele;
+        cin >> ele;
+        a += ele;
+        print(a);
     }
-    printArr(ans);
+    cout << "\n";
 }
 
 int32_t main()
