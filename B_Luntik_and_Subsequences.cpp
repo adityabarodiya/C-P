@@ -47,39 +47,40 @@ bool isEven(int n)
     return (n & 1) == 0;
 }
 
-int helper(string &c, string &n)
-{
-    int count = 0;
-    int i = n.size() - 1;
-    while (i >= 0 && n[i] != c[1])
-    {
-        i--;
-        count++;
-    }
-    int j = i - 1;
-    while (j >= 0 && n[j] != c[0])
-    {
-        j--;
-        count++;
-    }
-    return count;
-}
-
 void solve()
 {
     int n;
     cin >> n;
-    string s = to_string(n);
-    int mn = 1e9;
+    vi v(n);
+    inputArr(v);
+    int zero = 0;
+    int one = 0;
+    int x = 0;
+    int f = 1;
+    int j = 1;
+    x = v[0];
 
-    vector<string> cases = {"00", "25", "50", "75"};
-
-    for (auto i : cases)
+    int sum = accumulate()
+    for (int i = 0; i < n; i++)
     {
-        int ans = helper(i, s);
-        mn = min(mn, ans);
+        if (v[i] == 0)
+        {
+            zero++;
+        }
+        else if (v[i] == 1)
+        {
+            one++;
+        }
+        if (v[j] != x)
+            f = false;
     }
-    println(mn);
+    if (f)
+    {
+        println(0);
+        return;
+    }
+
+    println(one + zero + 1);
 }
 
 int32_t main()
