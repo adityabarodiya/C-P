@@ -30,7 +30,7 @@ using namespace std;
 /*
     Start Solving from here ---------------------------------------------------------------------
 */
-int sum = 0;
+int SUM = 0;
 void inputArr(vi &v)
 {
     for (int i = 0; i < v.size(); i++)
@@ -39,7 +39,7 @@ void inputArr(vi &v)
         cin >> ele;
 
         v[i] = ele;
-        sum += v[i];
+        SUM += v[i];
     }
 }
 
@@ -50,7 +50,24 @@ bool isEven(int n)
 
 void solve()
 {
-    
+    int a, b;
+    cin >> a >> b;
+
+    if (a == b)
+    {
+        println("0 0");
+        return;
+    }
+    int d = abs(a - b);
+    int rem = a % d;
+    int rem2 = abs(rem - d);
+
+    if (rem2 != 0)
+    {
+        rem = min(rem, rem2);
+    }
+
+    cout << d << " " << rem << endl;
 }
 
 int32_t main()
