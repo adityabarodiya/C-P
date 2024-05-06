@@ -50,20 +50,7 @@ bool isEven(int n)
 
 void solve()
 {
-    int n;
-    cin >> n;
-    vi v(n);
-    inputArr(v);
-    int zero = count(all(v), 0);
-    int one = count(all(v), 1);
-
-    if (one == 0)
-    {
-        println(0);
-        return;
-    }
-    int ans = one * (1LL << zero);
-    println(ans);
+    
 }
 
 int32_t main()

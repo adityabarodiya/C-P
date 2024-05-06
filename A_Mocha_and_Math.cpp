@@ -54,16 +54,12 @@ void solve()
     cin >> n;
     vi v(n);
     inputArr(v);
-    int zero = count(all(v), 0);
-    int one = count(all(v), 1);
-
-    if (one == 0)
+    int a = v[0];
+    for (int i : v)
     {
-        println(0);
-        return;
+        a &= i;
     }
-    int ans = one * (1LL << zero);
-    println(ans);
+    println(a);
 }
 
 int32_t main()
