@@ -48,21 +48,9 @@ bool isOdd(int n)
 {
     return (n & 1) == 1;
 }
-
 void solve()
 {
-    string s;
-    cin >> s;
-    int z = count(all(s), '0');
-    int o = count(all(s), '1');
-
-    int mn = min(o, z);
-    if (!isOdd(mn))
-    {
-        pl("NET");
-    }
-    else
-        pl("DA")
+    
 }
 
 int32_t main()

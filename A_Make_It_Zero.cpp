@@ -50,18 +50,7 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int a, b, n;
-    cin >> a >> b >> n;
-    vi v(n);
-    inputArr(v);
-    int c = b;
-    int ans = b;
-    for (int i : v)
-    {
-        ans += min(a-1,i);
-    }
-
-    pl(ans)
+    
 }
 
 int32_t main()
