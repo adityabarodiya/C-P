@@ -51,19 +51,35 @@ bool isEven(int n)
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
     vi v(n);
     inputArr(v);
-    int mn = 0;
-    int mx = 0;
-
-    for (int i : v)
+    int a, b, c;
+    int f = 0;
+    for (int i = 0; i < n; i++)
     {
-        mx += ceil((double)i / k);
+        int j = i + 1;
+        int k = j + 1;
+        if (k < n)
+        {
+            if (v[i] < v[j] && v[j] > v[k])
+            {
+                a = i;
+                b = j;
+                c = k;
+                f = 1;
+            }
+        }
     }
-    mn = ceil((double)SUM / k);
-    p(mn, mx);
+
+    if (f)
+    {
+        yes;
+        cout << a + 1 << " " << b + 1 << " " << c + 1 << endl;
+    }
+    else
+        no;
 }
 
 int32_t main()

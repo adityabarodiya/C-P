@@ -53,17 +53,16 @@ void solve()
 {
     int n, k;
     cin >> n >> k;
-    vi v(n);
+    int w = n * k;
+    vi v(w);
     inputArr(v);
-    int mn = 0;
-    int mx = 0;
-
-    for (int i : v)
+    int ans = 0;
+    while (k--)
     {
-        mx += ceil((double)i / k);
+        w -= n / 2 + 1;
+        ans += v[w];
     }
-    mn = ceil((double)SUM / k);
-    p(mn, mx);
+    cout << ans << "\n";
 }
 
 int32_t main()
