@@ -1,5 +1,10 @@
 /*
     Author - Aditya Barodiya
+
+    LinkedIn - https://www.linkedin.com/adityabarodiya
+    Github - https://github.com/adityabarodiya
+    Codeforces - https://codeforces.com/profile/adityabarodiya
+    CodeChef - https://www.codechef.com/users/adityabarodiya
 */
 
 #include <bits/stdc++.h>
@@ -9,12 +14,13 @@ using namespace std;
 
 #define vi vector<int>
 
-#define println(a) cout << a << endl;
-#define print(a) cout << a << " ";
+#define pl(a) cout << a << endl;
+#define p(a) cout << a << " ";
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
-
+#define el cout << "\n";
 #define pb push_back
+#define p(a, b) cout << a << " " << b << endl;
 #define printArr(a)       \
     for (auto x : a)      \
         cout << x << " "; \
@@ -36,33 +42,25 @@ void inputArr(vi &v)
     }
 }
 
+bool isOdd(int n)
+{
+    return (n & 1);
+}
+
 void solve()
 {
     int n;
     cin >> n;
-
-    
-    int mn = n/6;
-    int mx = n/4;
-    if(mn == 0 || mx == 0){
-        cout << 1 << " " << 1 << endl;
-        return;
-
-    }
-
-    if(n % 4 != 0 || n % 6 != 0){
-        // print -1
-        println(-1);
+    if (isOdd(n) || n < 4)
+    {
+        pl(-1);
         return;
     }
 
-    
-    print(mn);
-    println(mx);
+    int mn = ceil((double)n / 6);
+    int mx = n / 4;
 
-
-
-    
+    p(mn, mx)
 }
 
 int32_t main()

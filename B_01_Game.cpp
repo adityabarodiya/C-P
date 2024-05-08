@@ -50,7 +50,23 @@ bool isOdd(int n)
 }
 void solve()
 {
-    
+
+    string s;
+    cin >> s;
+    int zero = 0, one = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] == '0')
+            zero++;
+        else
+            one++;
+    }
+
+    int min = (zero < one) ? zero : one;
+    if (min % 2 == 0)
+        cout << "NET" << endl;
+    else
+        cout << "DA" << endl;
 }
 
 int32_t main()
