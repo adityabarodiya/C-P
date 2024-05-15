@@ -52,6 +52,26 @@ void solve()
 {
     int n;
     cin >> n;
+    int a = 0,b = 0;
+    if(!isOdd(n)){
+        a = n/2;
+        b = n/2;
+        cout << a << " " << b << endl;
+        return;
+    }
+
+    for(int i = 3; i <= sqrt(n); i+=2){
+        if(n % i == 0){
+            a = n / i;
+            b = n -a;
+            cout << a << " " << b << endl;
+            return;
+        }
+    }
+
+    cout << 1 << " " << n - 1 << endl;
+    return;
+    
 }
 
 int32_t main()
