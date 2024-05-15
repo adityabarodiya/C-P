@@ -38,8 +38,9 @@ void inputArr(vi &v)
     {
         int ele;
         cin >> ele;
+
         v[i] = ele;
-        SUM += v[i];     
+        SUM += v[i];
     }
 }
 
@@ -49,10 +50,33 @@ bool isOdd(int n)
 }
 void solve()
 {
-   int a,b,c,d;
-   cin >> a >> b >> c >> d;
-   if((c<a && c>b ) || (c>a && c<b) || (d<a && d>b) || d>a && d<b ) cout<<"YES"<<endl;
-   else cout<<"NO"<<endl;
+    int n, k, q;
+    cin >> n >> k >> q;
+    vi v(n);
+    inputArr(v);
+    int i = 0, j = 0;
+
+    int t = 0;
+    int l = 0;
+    int ans = 0;
+    for (int i : v)
+    {
+        if (i <= q)
+        {
+            l++;
+        }
+        else
+        {
+            if (l >= k)
+                ans += (l - k + 1) * (l - k + 2) / 2;
+            l = 0;
+        }
+    }
+
+    if (l >= k)
+        ans += (l - k + 1) * (l - k + 2) / 2;
+
+    cout << ans << endl;
 }
 
 int32_t main()

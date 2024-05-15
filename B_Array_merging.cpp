@@ -38,8 +38,9 @@ void inputArr(vi &v)
     {
         int ele;
         cin >> ele;
+
         v[i] = ele;
-        SUM += v[i];     
+        SUM += v[i];
     }
 }
 
@@ -49,10 +50,26 @@ bool isOdd(int n)
 }
 void solve()
 {
-   int a,b,c,d;
-   cin >> a >> b >> c >> d;
-   if((c<a && c>b ) || (c>a && c<b) || (d<a && d>b) || d>a && d<b ) cout<<"YES"<<endl;
-   else cout<<"NO"<<endl;
+    int n;
+    cin >> n;
+    vi a(n);
+    inputArr(a);
+    vi b(n);
+    inputArr(b);
+
+    map<int,int> m;
+
+    for(int i=0;i<n;i++)
+    {
+        m[a[i]]++;
+        m[b[i]]++;
+    }
+    int maxFreq = 0;
+    for(auto x:m)
+    {
+        maxFreq = max(maxFreq,x.second);
+    }
+    pl(maxFreq);
 }
 
 int32_t main()

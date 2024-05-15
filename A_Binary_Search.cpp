@@ -38,8 +38,9 @@ void inputArr(vi &v)
     {
         int ele;
         cin >> ele;
+
         v[i] = ele;
-        SUM += v[i];     
+        SUM += v[i];
     }
 }
 
@@ -47,12 +48,52 @@ bool isOdd(int n)
 {
     return (n & 1) == 1;
 }
+
+void binarySearch(vi &v, int target)
+{
+    int low = 0;
+    int high = v.size() - 1;
+    int f = 0;
+    while (low < high)
+    {
+        int mid = (low + high) / 2;
+        if (v[mid] == target)
+        {
+            f = 1;
+        }
+        else if (v[mid] > target)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+
+    if (f == 1)
+    {
+        cout << "YES\n";
+    }
+    else
+    {
+        cout << "NO\n";
+    }
+}
+
 void solve()
 {
-   int a,b,c,d;
-   cin >> a >> b >> c >> d;
-   if((c<a && c>b ) || (c>a && c<b) || (d<a && d>b) || d>a && d<b ) cout<<"YES"<<endl;
-   else cout<<"NO"<<endl;
+    int n, k;
+    cin >> n >> k;
+    vi v(n);
+    inputArr(v);
+    vi q(k);
+    inputArr(q);
+
+    for (int i : v)
+    {
+        binarySearch(v, i);
+    }
 }
 
 int32_t main()
@@ -61,13 +102,6 @@ int32_t main()
     cin.tie(0);
     cout.tie(0);
     clock_t z = clock();
-
-    int t = 0;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-        SUM = 0;
-    }
+    solve();
     return 0;
 }

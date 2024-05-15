@@ -38,8 +38,9 @@ void inputArr(vi &v)
     {
         int ele;
         cin >> ele;
+
         v[i] = ele;
-        SUM += v[i];     
+        SUM += v[i];
     }
 }
 
@@ -47,12 +48,40 @@ bool isOdd(int n)
 {
     return (n & 1) == 1;
 }
+void fn()
+{
+    int i = 1;
+}
+
 void solve()
 {
-   int a,b,c,d;
-   cin >> a >> b >> c >> d;
-   if((c<a && c>b ) || (c>a && c<b) || (d<a && d>b) || d>a && d<b ) cout<<"YES"<<endl;
-   else cout<<"NO"<<endl;
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    set<char> st;
+
+    int ans = 1;
+    vi prefix(n);
+    for (int i = 0; i < n; i++)
+    {
+        st.insert(s[i]);
+        prefix[i] = st.size();
+    }
+    st.clear();
+    vi suffix(n);
+    for (int i = n - 1; i >= 0; i--)
+    {
+        st.insert(s[i]);
+        suffix[i] = st.size();
+    }
+
+    for (int i = 0; i < n -1; i++)
+    {
+        ans = max(ans, prefix[i] + suffix[i + 1]);
+    }
+
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -64,6 +93,8 @@ int32_t main()
 
     int t = 0;
     cin >> t;
+    if (t == 1000)
+        fn();
     while (t--)
     {
         solve();
