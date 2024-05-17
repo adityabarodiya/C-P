@@ -50,30 +50,28 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int n;
-    cin >> n;
-    int a = 0, b = 0;
-    if (!isOdd(n))
-    {
-        a = n / 2;
-        b = n / 2;
-        cout << a << " " << b << endl;
-        return;
+    int n, d;
+    cin >> n >> d;
+    vi v(n);
+    inputArr(v);
+    int ans = 0;
+    sort(all(v));
+
+    int r = n;
+    if(SUM <= d){
+
     }
 
-    for (int i = 3; i <= sqrt(n); i += 2)
+    for (int i = n - 1; i >= 0; i--)
     {
-        if (n % i == 0)
-        {
-            a = n / i;
-            b = n - a;
-            cout << a << " " << b << endl;
-            return;
-        }
-    }
 
-    cout << 1 << " " << n - 1 << endl;
-    return;
+        int t = d / v[i];
+        t++;
+        r -= t;
+        if (r >= 0)
+            ans++;
+    }
+    pl(ans);
 }
 
 int32_t main()
@@ -83,12 +81,13 @@ int32_t main()
     cout.tie(0);
     clock_t z = clock();
 
-    int t = 0;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-        SUM = 0;
-    }
+    // int t = 0;
+    // cin >> t;
+    // while (t--)
+    // {
+    //     solve();
+    //     SUM = 0;
+    // }
+    solve();
     return 0;
 }

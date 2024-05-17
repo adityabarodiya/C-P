@@ -51,29 +51,45 @@ bool isOdd(int n)
 void solve()
 {
     int n;
-    cin >> n;
-    int a = 0, b = 0;
-    if (!isOdd(n))
+    char c;
+    string s;
+    cin >> n >> c >> s;
+
+    int mx = 0;
+    int cnt = 0;
+    string t = s + s;
+    if (c == 'g')
     {
-        a = n / 2;
-        b = n / 2;
-        cout << a << " " << b << endl;
+        pl(0);
         return;
     }
-
-    for (int i = 3; i <= sqrt(n); i += 2)
+    int i = 0;
+    int j = 1;
+    while (j < 2 * n)
     {
-        if (n % i == 0)
+        if (t[i] == c)
         {
-            a = n / i;
-            b = n - a;
-            cout << a << " " << b << endl;
-            return;
+            if (t[j] != 'g')
+            {
+                cnt++;
+                j++;
+            }
+            else
+            {
+                cnt = 0;
+                i = j + 1; 
+                j = i + 1; 
+            }
         }
+        else
+        {
+            i++;
+            j++;
+        }
+        mx = max(mx, cnt);
     }
 
-    cout << 1 << " " << n - 1 << endl;
-    return;
+    pl(1+mx);
 }
 
 int32_t main()
