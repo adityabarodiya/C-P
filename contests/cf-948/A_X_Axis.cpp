@@ -50,17 +50,15 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int a, b;
-    cin >> a >> b;
+    int a , b ,c;
+    cin >> a >> b >> c;
 
-    for (int i = 0; i < 30; ++i)
-    {
-        if ((a & (1 << i)) != (b & (1 << i)))
-        {
-            cout << (1ll << i) << "\n";
-            break;
-        }
-    }
+    int maxVal = max(a,max(b,c));
+    int minVal = min(a,min(b,c));
+
+    int ans = maxVal - minVal;
+    // ptint ans 
+    cout << ans << endl;
 }
 
 int32_t main()
