@@ -48,39 +48,48 @@ bool isOdd(int n)
 {
     return (n & 1) == 1;
 }
+
+int countDigits(int n)
+{
+    int count = 0;
+    while (n)
+    {
+        count++;
+        n /= 10;
+    }
+    return count;
+}
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
-    int v[n + 2][m + 2];
-    memset(v, 0, sizeof(v));
-    for (int i = 1; i <= n; i++)
+    string s;
+    cin >> s;
+    int n = s.size();
+
+    if (n == 1)
     {
-        for (int j = 1; j <= m; j++)
-        {
-            cin >> v[i][j];
-        }
+        no;
+        return;
+    }
+    if (s[0] != '1')
+    {
+        no;
+        return;
+    }
+    if (s[n - 1] == '9')
+    {
+        no;
+        return;
     }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i < n - 1; i++)
     {
-        for (int j = 1; j <= m; j++)
+        if (s[i] == '0')
         {
-            int x = max({v[i - 1][j], v[i + 1][j], v[i][j + 1], v[i][j - 1]});
-            if (v[i][j] > x)
-            {
-                v[i][j] = x;
-            }
+            no;
+            return;
         }
     }
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            cout << v[i][j] << " ";
-        }
-        cout << endl;
-    }
+    yes;
 }
 
 int32_t main()

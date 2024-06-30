@@ -52,35 +52,44 @@ void solve()
 {
     int n, m;
     cin >> n >> m;
-    int v[n + 2][m + 2];
-    memset(v, 0, sizeof(v));
-    for (int i = 1; i <= n; i++)
+    // take input in a matrix where n is the number of rows and m is the number of columns
+    vector<vector<int>> grid(n, vector<int>(m));
+    int sum = 0;
+    int zero = 0;
+
+    // Read the grid
+    int mn = 1e8;
+    int neg = 0;
+    for (int i = 0; i < n; ++i)
     {
-        for (int j = 1; j <= m; j++)
+        for (int j = 0; j < m; ++j)
         {
-            cin >> v[i][j];
+            cin >> grid[i][j];
+            neg += grid[i][j] < 0;
+
+            if (grid[i][j] == 0)
+                zero = 1;
         }
     }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= m; j++)
+        for (int j = 0; j < m; j++)
         {
-            int x = max({v[i - 1][j], v[i + 1][j], v[i][j + 1], v[i][j - 1]});
-            if (v[i][j] > x)
-            {
-                v[i][j] = x;
-            }
+            grid[i][j] = abs(grid[i][j]);
+            sum += grid[i][j];
+            mn = min(mn, grid[i][j]);
         }
     }
-    for (int i = 1; i <= n; i++)
+    if (isOdd(neg))
+        sum = abs(sum) - mn;
+
+    if (zero || !isOdd(neg))
     {
-        for (int j = 1; j <= m; j++)
-        {
-            cout << v[i][j] << " ";
-        }
-        cout << endl;
+        pl(sum);
+        return;
     }
+    pl(sum - mn);
 }
 
 int32_t main()

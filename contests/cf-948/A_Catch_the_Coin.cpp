@@ -50,37 +50,12 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
-    int v[n + 2][m + 2];
-    memset(v, 0, sizeof(v));
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            cin >> v[i][j];
-        }
-    }
+    int x , y;
+    cin >> x >> y;
 
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            int x = max({v[i - 1][j], v[i + 1][j], v[i][j + 1], v[i][j - 1]});
-            if (v[i][j] > x)
-            {
-                v[i][j] = x;
-            }
-        }
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            cout << v[i][j] << " ";
-        }
-        cout << endl;
-    }
+    if(y >= -1) {
+        yes;
+    }else no;
 }
 
 int32_t main()
