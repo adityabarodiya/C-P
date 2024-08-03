@@ -50,15 +50,7 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int n;
-    cin >> n;
-    vi v(n);
-    inputArr(v);
-    sort(all(v));
-    for(int i = n - 1; i >= 0; i--){
-        cout << v[i] << " ";
-    }
-    cout << endl;
+    
 }
 
 int32_t main()
