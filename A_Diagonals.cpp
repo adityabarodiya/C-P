@@ -50,10 +50,16 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ans = ((y + 1) * k - 1 + x - 2) / (x - 1) + k;
-    pl(ans);
+    int n , k;
+    cin >> n >> k;
+    if(k == 0){
+        pl(0)
+        return;
+    }
+    k++;
+    int ans = k / n;
+    ans++;
+    pl(ans)
 }
 
 int32_t main()

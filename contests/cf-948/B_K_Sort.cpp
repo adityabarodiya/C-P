@@ -43,6 +43,15 @@ void inputArr(vi &v)
         SUM += v[i];
     }
 }
+// write a function to check if a vector is sorted or not
+
+bool isSorted(vi &v)
+{
+    for (int i = 0; i < v.size() - 1; i++)
+        if (v[i] > v[i + 1])
+            return false;
+    return true;
+}
 
 bool isOdd(int n)
 {
@@ -50,10 +59,23 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ans = ((y + 1) * k - 1 + x - 2) / (x - 1) + k;
-    pl(ans);
+    int n;
+    cin >> n;
+    vi v(n);
+    inputArr(v);
+    if(isSorted(v)) {
+        pl(0);
+        return;
+    }
+    int count = 0;
+    for (int i = 0; i < n - 1; i++){
+        while(v[i] > v[i + 1]){
+            count++;
+            v[i+1]++;
+        }
+    }
+    pl(count+1);
+    
 }
 
 int32_t main()

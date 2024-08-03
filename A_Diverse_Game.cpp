@@ -50,10 +50,48 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ans = ((y + 1) * k - 1 + x - 2) / (x - 1) + k;
-    pl(ans);
+    int n, m;
+    cin >> n >> m;
+
+    if (n == 1 && m == 1)
+    {
+        pl(-1);
+        return;
+    }
+
+    vector<vector<int>> a(n, vector<int>(m));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
+    vector<vector<int>> b(n, vector<int>(m));
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            if (j == m)
+            {
+                b[i][j - 1] = a[i][0];
+            }
+            else
+            {
+                b[i][j - 1] = a[i][j];
+            }
+        }
+    }
+    // print matrix b
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << a[i][j] << " ";
+        }
+        el;
+    }
 }
 
 int32_t main()

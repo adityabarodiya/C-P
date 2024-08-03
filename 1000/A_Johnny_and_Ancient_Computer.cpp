@@ -50,10 +50,64 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ans = ((y + 1) * k - 1 + x - 2) / (x - 1) + k;
-    pl(ans);
+    int a , b;
+    cin >> a >> b;
+
+    int x = a ^ b;
+    if(x == 0){
+        pl(0);
+        return;
+    }
+    int A = max(a,b);
+    int B = min(a,b);
+
+    if(A % B != 0){
+        pl(-1);
+        return;
+    }
+
+    int count = 0;
+    int aa ;
+    // for 8
+    while(A > B && A != B){
+        B*= 8;
+        count++;
+    }
+    if(A < B){
+        B /= 8;
+        count--;
+    }
+    if(A == B) {
+        pl(count)
+        return;
+    }
+
+    // do same for 4
+    while(A > B && A!= B){
+        B*= 4;
+        count++;
+    }
+    if(A < B){
+        B /= 4;
+        count--;
+    }
+    if(A == B) {
+        pl(count)
+        return;
+    }
+    // do same for 2
+    while(A > B && A!= B){
+        B*= 2;
+        count++;
+    }
+    if(A < B){
+        B /= 2;
+        count--;
+    }
+    if(A == B) {
+        pl(count)
+        return;
+    }else pl(-1)
 }
 
 int32_t main()

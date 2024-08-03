@@ -50,9 +50,15 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ans = ((y + 1) * k - 1 + x - 2) / (x - 1) + k;
+    int n;
+    cin >> n;
+    vi a(n);
+    inputArr(a);
+    int ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        ans = max(ans, a[i] + i);
+    }
     pl(ans);
 }
 

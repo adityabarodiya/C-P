@@ -50,10 +50,18 @@ bool isOdd(int n)
 }
 void solve()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ans = ((y + 1) * k - 1 + x - 2) / (x - 1) + k;
-    pl(ans);
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int sum = 0, ans = 1e9;
+    for(char c : s){
+        if(c == '(') sum += 1;
+        else sum -= 1;
+        ans = min(ans, sum);
+    }
+    pl(abs(ans))
+    
 }
 
 int32_t main()
